@@ -1,26 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import defaultDataset from "./dataset";
+export default class App extends React.Component {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      answers: [],
+      chats: [],
+      currentId: "init",
+      dataset: defaultDataset,
+      open: false,
+    };
+  }
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-};
-
-export default App;
+  render() {
+    return <div></div>;
+  }
+}

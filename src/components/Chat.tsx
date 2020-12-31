@@ -7,7 +7,7 @@ import Torahack from "../assets/img/torahack.png";
 
 const Chat = (props: any) => {
   const isQuestion = props.type === "question";
-  const classes = isQuestion ? "p-chat__row" : "p-chat__reserve";
+  const classes = isQuestion ? "p-chat__row" : "p-chat__reverse";
   return (
     <ListItem className={classes}>
       <ListItemAvatar>

@@ -5,10 +5,10 @@ import { Chat } from ".";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      width: "100%",
-      maxWidth: "36ch",
-      backgroundColor: theme.palette.background.paper,
+    chats: {
+      height: 400,
+      padding: 0,
+      overflow: "auto",
     },
   })
 );
@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme: Theme) =>
 const Chats = (props: any) => {
   const classes = useStyles();
   return (
-    <List className={classes.root}>
+    <List className={classes.chats}>
       {props.chats.map((chat: any, index: number) => {
         return (
-          <Chat text={chat.text} type={chat.type} key={index.toString()}></Chat>
+          <Chat text={chat.text} type={chat.type} key={index.toString()} />
         );
       })}
     </List>

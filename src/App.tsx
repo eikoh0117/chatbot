@@ -1,7 +1,7 @@
 import React from "react";
 import defaultDataset from "./dataset";
 import "./assets/styles/style.scss";
-import { AnswersList, Chats } from "./components";
+import { AnswersList, Chats, FormDialog } from "./components";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type Props = {};
@@ -23,6 +23,8 @@ export default class App extends React.Component<Props, State> {
       open: false,
     };
     this.selectAnswer = this.selectAnswer.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleClickOpen = this.handleClickOpen.bind(this);
   }
 
   displayNextQuestion = (nextQuestionId: string) => {
@@ -42,6 +44,9 @@ export default class App extends React.Component<Props, State> {
     switch (true) {
       case nextQuestionId === "init":
         setTimeout(() => this.displayNextQuestion(nextQuestionId), 500);
+        break;
+      case nextQuestionId === "contact":
+        this.handleClickOpen();
         break;
       case /^https:*/.test(nextQuestionId): {
         const a = document.createElement("a");
@@ -66,6 +71,18 @@ export default class App extends React.Component<Props, State> {
     }
   };
 
+  handleClickOpen = () => {
+    this.setState({
+      open: true,
+    });
+  };
+
+  handleClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
   componentDidMount() {
     const initAnswer = "";
     this.selectAnswer(initAnswer, this.state.currentId);
@@ -87,6 +104,7 @@ export default class App extends React.Component<Props, State> {
             answers={this.state.answers}
             select={this.selectAnswer}
           />
+          <FormDialog open={this.state.open} handleClose={this.handleClose} />
         </div>
       </section>
     );

@@ -41,7 +41,8 @@ export default class App extends React.Component<Props, State> {
   selectAnswer = (selectedAnswer: any, nextQuestionId: string) => {
     switch (true) {
       case nextQuestionId === "init":
-        this.displayNextQuestion(nextQuestionId);
+        setTimeout(() => this.displayNextQuestion(nextQuestionId), 500);
+
         break;
       default: {
         const chats = this.state.chats;
@@ -52,7 +53,8 @@ export default class App extends React.Component<Props, State> {
         this.setState({
           chats: chats,
         });
-        this.displayNextQuestion(nextQuestionId);
+        setTimeout(() => this.displayNextQuestion(nextQuestionId), 1000);
+
         break;
       }
     }

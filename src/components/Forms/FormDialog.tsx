@@ -91,6 +91,19 @@ export default class FormDialog extends React.Component<Props, State> {
           "【問い合わせ内容】\n" +
           description,
       };
+      const url = process.env.REACT_APP_SLACK_WEBHOOK_URL;
+      fetch(url!, {
+        method: "POST",
+        body: JSON.stringify(payload),
+      }).then(() => {
+        alert("送信が完了しました");
+        this.setState({
+          name: "",
+          email: "",
+          description: "",
+        });
+        return this.props.handleClose();
+      });
     }
   };
 

@@ -49,10 +49,49 @@ export default class FormDialog extends React.Component<Props, State> {
     });
   };
 
+  validateEmailFormat = (email: string) => {
+    const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    return regex.test(email);
+  };
+
+  validateRequiredInput = (...args: any) => {
+    let isBlank = false;
+    for (let i = 0; i < args.length; i = (i + 1) | 0) {
+      if (args[i] === "") {
+        isBlank = true;
+      }
+    }
+    return isBlank;
+  };
+
   submitForm = () => {
     const name = this.state.name;
     const email = this.state.email;
     const description = this.state.description;
+
+    const isBlank = this.validateRequiredInput(name, email, description);
+    const isValidEmail = this.validateEmailFormat(email);
+
+    if (isBlank) {
+      alert("必須入力欄が空白です。");
+      return false;
+    } else if (!isValidEmail) {
+      alert("メールアドレスの書式が異なります。");
+      return false;
+    } else {
+      const payload = {
+        text:
+          "お問い合わせがありました\n" +
+          "お名前: " +
+          name +
+          "\n" +
+          "メールアドレス: " +
+          email +
+          "\n" +
+          "【問い合わせ内容】\n" +
+          description,
+      };
+    }
   };
 
   render() {

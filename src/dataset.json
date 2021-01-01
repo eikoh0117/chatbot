@@ -4,7 +4,7 @@
       { "content": "仕事を依頼したい", "nextId": "job_offer" },
       {
         "content": "エンジニアのキャリアについて相談したい",
-        "nextId": "consultant",
+        "nextId": "consultant"
       },
       { "content": "学習コミュニティについて知りたい", "nextId": "community" },
       { "content": "お付き合いしたい", "nextId": "dating" }
@@ -77,7 +77,7 @@
     "answers": [
       {
         "content": "さらに詳細を知りたい",
-        "nextId": "https://youtu.be/tIzE7hUDbBM",
+        "nextId": "https://youtu.be/tIzE7hUDbBM"
       },
       {
         "content": "コミュニティに参加したい",
@@ -86,7 +86,7 @@
       { "content": "最初の質問に戻る", "nextId": "init" }
     ],
     "question":
-      "フロントエンド向けの教材の提供、キャリアや勉強法に関するメルマガの配信、週1のオンライン作業会などを開催しています！\n詳細はYouTube動画で紹介しています。",
+      "フロントエンド向けの教材の提供、キャリアや勉強法に関するメルマガの配信、週1のオンライン作業会などを開催しています！\n詳細はYouTube動画で紹介しています。"
   },
   "dating": {
     "answers": [
